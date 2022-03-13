@@ -10,6 +10,8 @@ import generics from './08_generics/index.test'
 import exercise_2 from './09_exercise_2/index.test'
 import generics_keyof from './10_generics_keyof/index.test'
 import utilities from './11_utilities/index.test'
+import immutability from './12_immutability/index.test'
+import enums from './13_enums/index.test'
 
 type ITest = () => void
 
@@ -24,6 +26,8 @@ const TESTS: Record<string,ITest> = {
   exercise_2,
   generics_keyof,
   utilities,
+  immutability,
+  enums,
 }
 
 
@@ -33,5 +37,5 @@ const execute = (test_name: string) => {
   func()
 }
 
-const TEST_NAME = 'utilities'
+const TEST_NAME = 'enums'
 execute(TEST_NAME)
