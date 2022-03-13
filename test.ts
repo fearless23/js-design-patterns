@@ -9,6 +9,7 @@ import tuples from './07_tuples/index.test'
 import generics from './08_generics/index.test'
 import exercise_2 from './09_exercise_2/index.test'
 import generics_keyof from './10_generics_keyof/index.test'
+import utilities from './11_utilities/index.test'
 
 type ITest = () => void
 
@@ -22,6 +23,7 @@ const TESTS: Record<string,ITest> = {
   generics,
   exercise_2,
   generics_keyof,
+  utilities,
 }
 
 
@@ -31,5 +33,5 @@ const execute = (test_name: string) => {
   func()
 }
 
-const TEST_NAME = 'generics_keyof'
+const TEST_NAME = 'utilities'
 execute(TEST_NAME)

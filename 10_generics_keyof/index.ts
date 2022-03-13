@@ -2,8 +2,6 @@ export const pluck = <T,K extends keyof T>(items: T[], key:K): T[K][] => {
   return items.map(i => i[key]);
 }
 
-
-
 export interface IUser {
   time: number;
   user: string;
