@@ -31,8 +31,8 @@ interface ISendEvent {
   (name: "checkout", data: { cart_count: number }): void,
 }
 
-const send_event: ISendEvent = (name: string, data: unknown): void => {
-  console.log(`${name}: ${JSON.stringify(data)}`)
+const send_event: ISendEvent = (name: string, data: unknown): string => {
+  return `${name}: ${JSON.stringify(data)}`
 }
 
 send_event("add_to_cart", { product_id: 1 }) // if arg1 = add_to_cart, arg2 must contain product_id
