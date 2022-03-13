@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Jassi",
+    "planets": "Jupiter"
+  },
+  {
+    "name": "Sushil",
+    "planets": [
+      "Mercury",
+      "Venus"
+    ]
+  },
+  {
+    "name": "Rahul",
+    "planets": [
+      "Uranus",
+      "Mars"
+    ]
+  }
+]
