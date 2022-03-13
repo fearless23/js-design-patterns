@@ -1,26 +1,25 @@
-type ISetStateFunction<T> = (t: T) => void
-type IGetStateFunction<T> = () => T;
-type IUseStateOutput<T> = [x: IGetStateFunction<T>, y: ISetStateFunction<T>]
-
-export const useState = <T>(initialValue: T): IUseStateOutput<T> => {
-  let val: T = initialValue;
-  return [
-    () => val,
-    (v) => { val = v; }
-  ];
+export const pluck = <T,K extends keyof T>(items: T[], key:K): T[K][] => {
+  return items.map(i => i[key]);
 }
 
 
-interface Rank<T> {
-  item: T;
-  rank: number;
+
+export interface IUser {
+  time: number;
+  user: string;
 }
 
-export type IGetRankFunction<T> = (v: T) => number
+export interface IProduct {
+  quantity: number;
+  product_id: string;
+}
 
-export const ranker = <T>(items: T[], get_rank: IGetRankFunction<T>): T[] => {
-  return items
-    .map(item => ({ item, rank: get_rank(item) }))
-    .sort((a, b) => a.rank - b.rank)
-    .map(i => i.item)
+export interface IEventMap {
+  add_to_cart: IUser & IProduct,
+  checkout: IUser
+}
+
+
+export const send_event = <K extends keyof IEventMap>(name:string, data: IEventMap[K]): void => {
+  console.log(name, data)
 }

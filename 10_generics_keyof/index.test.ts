@@ -1,85 +1,36 @@
 import { log } from '../log';
-import { useState, ranker, IGetRankFunction } from '.'
+import { pluck, send_event, IUser, IProduct, IEventMap } from '.'
 
-interface User {
-  first: string,
-  last: string
+interface IDog {
+  name: string;
+  age: number;
 }
 
-const user1: User = {
-  first: 'Jassi',
-  last: 'Sing'
-}
+const dogs: IDog[] = [
+  { name: 'Mimi', age: 12 },
+  { name: 'Tiger', age: 8 },
+]
 
-const user2: User = {
-  first: 'Jassi',
-  last: 'Singh'
-}
+type IDogKey = keyof IDog;
+
+const age_key: IDogKey = 'age'
+const name_key: IDogKey = 'name'
 
 const test = () => {
-  const [a, b] = useState<User | null>(null)
-  console.log(`get val`, a())
-  b(user1)
-  console.log(`get val`, a())
-  b(user2)
-  console.log(`get val`, a())
+  log('pluck age', pluck(dogs, age_key))
+  log('pluck name', pluck(dogs, name_key))
 }
 
-// --------------------------------------------
-
-interface Customer {
-  name: string;
-  age: number;
-  city: string
-}
-
-interface Employee {
-  name: string;
-  age: number;
-  city: string;
-  role: string;
-}
-
-const list1: Customer[] = [
-  {
-    name: 'Jassi',
-    age: 32,
-    city: 'Delhi'
-  },
-  {
-    name: 'Happy',
-    age: 28,
-    city: 'Jalandhar'
-  }
-]
-
-const list2: Employee[] = [
-  {
-    name: 'Jassi',
-    age: 32,
-    city: 'Delhi',
-    role:'Backend'
-  },
-  {
-    name: 'Happy',
-    age: 28,
-    city: 'Jalandhar',
-    role:'Tester'
-  }
-]
-
-
-const get_customer_rank: IGetRankFunction<Customer> = (v: Customer) => {
-  return v.age
-}
-
-const get_employee_rank: IGetRankFunction<Employee> = (v: Employee) => {
-  return v.age
-}
+const a: IUser & IProduct = {
+  time: 1230, user: 'Jassi',
+  product_id: 'TV', quantity: 3
+};
+const b: IUser = { time: 1230, user: 'Jassi' };
+// const c = 'fdf'
 
 const test2 = () => {
-  log('ranker', ranker<Customer>(list1, get_customer_rank))
-  log('ranker', ranker<Employee>(list2, get_employee_rank))
+  log('send_event 1', send_event("addToCart", a))
+  log('send_event 2', send_event("abc", b))
 }
 
-export default test2;
+export default test2
