@@ -6,6 +6,7 @@ import overloading from './4_overloading/index.test'
 import exercise_1 from './5_exercise_1/index.test'
 import optionals from './6_optionals/index.test'
 import tuples from './7_tuples/index.test'
+import generics from './8_generics/index.test'
 
 type ITest = () => void
 
@@ -16,6 +17,7 @@ const TESTS: Record<string,ITest> = {
   exercise_1,
   optionals,
   tuples,
+  generics,
 }
 
 
@@ -25,5 +27,5 @@ const execute = (test_name: string) => {
   func()
 }
 
-const TEST_NAME = 'tuples'
+const TEST_NAME = 'generics'
 execute(TEST_NAME)

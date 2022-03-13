@@ -11,7 +11,7 @@ type ISetStateFunction<T> = (t: T) => void
 type IGetStateFunction<T> = () => T;
 type IUseStateOutput<T> = [x: IGetStateFunction<T>, y: ISetStateFunction<T>]
 
-export function useState<T>(initialValue: T): IUseStateOutput<T> {
+export const useState = <T>(initialValue: T): IUseStateOutput<T> => {
   let val: T = initialValue;
   return [
     () => val,
