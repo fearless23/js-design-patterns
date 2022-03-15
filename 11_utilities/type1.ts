@@ -40,3 +40,6 @@ export const map_by_id = (users: IUser[]): Record<IUser['id'], IUserWithoutID> =
   })
   return map;
 }
+
+
+// see type2.ts for more Utility types

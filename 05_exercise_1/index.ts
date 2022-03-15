@@ -25,7 +25,6 @@ const attach_id = (house: IHouse): IHouseWithID => {
     if (HOUSES[i].name === house.name) id = i;
   }
   return { id, ...house }
-
 }
 /*
 // Overloading with function expression

@@ -17,10 +17,11 @@ import mapped from './15_mapped/index.test'
 import readonly from './16_readonly/index.test'
 import mixins from './17_mixins/index.test'
 import exercise_3 from './18_exercise_3/index.test'
+import conditionals from './19_conditionals/index.test'
 
 type ITest = () => void
 
-const TESTS: Record<string,ITest> = {
+const TESTS: Record<string, ITest> = {
   functions,
   funcs_and_funcs,
   overloading,
@@ -38,14 +39,21 @@ const TESTS: Record<string,ITest> = {
   readonly,
   mixins,
   exercise_3,
+  conditionals,
 }
 
 
-const execute = (test_name: string) => {
-  console.log(divider);
-  const func = TESTS[test_name];
-  func()
+const execute = async (test_name: string) => {
+  try {
+    console.log(divider);
+    const func = TESTS[test_name];
+    await func()
+  } catch (error) {
+    console.error(error)
+  }
+  console.log(`---- DONE ----`)
+  process.exit()
 }
 
-const TEST_NAME = 'exercise_3'
-execute(TEST_NAME)
+const TEST_NAME = 'utilities'
+execute(TEST_NAME).then().catch()

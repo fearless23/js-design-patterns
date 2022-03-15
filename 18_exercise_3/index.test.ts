@@ -1,6 +1,6 @@
 import { log } from '../log';
 import { EventProcessor } from './basic'
-import { EventProcessorAdvanced } from '.'
+import { EventProcessorAdvanced } from './advanced'
 
 interface AuthEventsMap {
   login: {
