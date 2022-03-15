@@ -13,6 +13,10 @@ import utilities from './11_utilities/index.test'
 import immutability from './12_immutability/index.test'
 import enums from './13_enums/index.test'
 import classes from './14_classes/index.test'
+import mapped from './15_mapped/index.test'
+import readonly from './16_readonly/index.test'
+import mixins from './17_mixins/index.test'
+import exercise_3 from './18_exercise_3/index.test'
 
 type ITest = () => void
 
@@ -30,6 +34,10 @@ const TESTS: Record<string,ITest> = {
   immutability,
   enums,
   classes,
+  mapped,
+  readonly,
+  mixins,
+  exercise_3,
 }
 
 
@@ -39,5 +47,5 @@ const execute = (test_name: string) => {
   func()
 }
 
-const TEST_NAME = 'classes'
+const TEST_NAME = 'exercise_3'
 execute(TEST_NAME)

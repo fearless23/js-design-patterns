@@ -17,7 +17,6 @@ export interface IEventMap {
   checkout: IUser
 }
 
-
 export const send_event = <K extends keyof IEventMap>(name:string, data: IEventMap[K]): void => {
   console.log(name, data)
 }

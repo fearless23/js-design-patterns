@@ -44,5 +44,4 @@ export function parse_coordinate(arg1: unknown, arg2?: unknown): ICoordinate {
   if (typeof arg1 === 'object') return parse_coordinate_from_object(arg1 as ICoordinate)
   else if (typeof arg1 === 'string') return parse_coordinate_from_string(arg1)
   else return parse_coordinate_from_numbers(arg1 as number, arg2 as number)
-
 };
